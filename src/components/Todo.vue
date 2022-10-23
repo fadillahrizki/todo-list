@@ -3,7 +3,7 @@
         <div class="between">
             <input type="checkbox" :checked="!todo.is_active" @click="updateTodoStatus({id:todo.id, is_active:!todo.is_active})" data-cy="todo-item-checkbox">
             <Priority :priority="todo.priority" />
-            <h4 data-cy="todo-item-name" :class="todo.is_active ? '' : 'finish'">{{todo.title}}</h4>
+            <h4 data-cy="todo-item-title" :class="todo.is_active ? '' : 'finish'">{{todo.title}}</h4>
             <IconPen data-cy="todo-item-edit-button" @click="findTodo(todo)"/>
         </div>
         <div class="between">
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions } from 'vuex';
 import IconTrash from './icons/IconTrash.vue';
 import Priority from './Priority.vue';
 import IconPen from './icons/IconPen.vue';
