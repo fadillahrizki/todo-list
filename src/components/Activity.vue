@@ -9,12 +9,11 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions } from 'vuex';
 import IconTrash from './icons/IconTrash.vue';
-import DeleteModal from './DeleteModal.vue';
 export default {
     props: ["activity"],
-    components: { IconTrash, DeleteModal },
+    components: { IconTrash },
     computed:{
         formattedDate(){
             return new Date(this.activity.created_at).toLocaleDateString("id-ID", { year: 'numeric', month: 'long', day: 'numeric' })

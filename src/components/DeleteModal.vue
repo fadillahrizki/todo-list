@@ -1,9 +1,9 @@
 <template>
     <div class="modal-overlay" @click.self="toggleDeleteModal">
-        <div class="modal">
+        <div class="modal" data-cy="modal-delete">
             <div class="modal-body">
-                <IconAlert />
-                <p class="text">Apakah anda yakin menghapus {{type}} <strong data-cy="modal-delete-title">"{{selectedDelete.title}}"?</strong></p>
+                <IconAlert data-cy="modal-delete-icon"/>
+                <p class="text" data-cy="modal-delete-title">Apakah anda yakin menghapus {{type}} <strong>"{{selectedDelete.title}}"?</strong></p>
                 <div class="buttons">
                     <Button data-cy="modal-delete-cancel-button" :type="'secondary'" @click="toggleDeleteModal">Batal</Button>
                     <Button data-cy="modal-delete-confirm-button" :type="'danger'" @click="deleteItem">Hapus</Button>

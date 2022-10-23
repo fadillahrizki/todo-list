@@ -1,6 +1,6 @@
 <template>
     <div class="modal-overlay" @click.self="toggleModal">
-        <div class="modal">
+        <div class="modal" data-cy="modal-add">
             <div class="modal-header">
                 <h3>Tambah List Item</h3>
                 <IconClose data-cy="modal-add-close-button" @click="toggleModal" />
@@ -8,13 +8,13 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="">Nama List Item</label>
-                    <input type="text" placeholder="Tambahkan nama item" v-model="title">
+                    <input type="text" data-cy="modal-add-name-input" placeholder="Tambahkan nama item" v-model="title">
                 </div>
                 <div class="form-group">
                     <label for="">Priority</label>
-                    <v-select id="priority" :options="options" v-model="priority" :reduce="option => option.value" label="title">
+                    <v-select id="priority" data-cy="modal-add-priority-dropdown" :options="options" v-model="priority" :reduce="option => option.value" label="title">
                         <template v-slot:option="option">
-                            <div class="flex">
+                            <div class="flex" data-cy="modal-add-priority-item">
                                 <PriorityVue :priority="option.value" />
                                 <span>{{ option.title }}</span>
                             </div>

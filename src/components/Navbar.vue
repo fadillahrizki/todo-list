@@ -1,14 +1,8 @@
 <template>
     <div class="navbar">
-        <h2>TO DO LIST APP</h2>
+        <h2 data-cy="header-title">TO DO LIST APP</h2>
     </div>
 </template>
-
-<script>
-    export default {
-        
-    }
-</script>
 
 <style scoped>
     .navbar {
@@ -16,6 +10,8 @@
         padding:2rem 12rem;
         box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1),
             0 4px 6px -4px rgb(0 0 0 / .1);
+        position: sticky;
+        top:0;
     }
     .navbar h2 {
         font-size:1.5rem;

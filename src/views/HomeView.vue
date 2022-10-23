@@ -2,7 +2,7 @@
   <main>
     <Alert v-show="showAlert" :message="'Activity berhasil dihapus'" />
     <div class="between mb">
-      <h1>Activity</h1>
+      <h1 data-cy="activity-title">Activity</h1>
       <Button data-cy="activity-add-button" type="primary" @click="addActivity"> <IconPlus /> <span>Tambah</span> </Button>
     </div>
     <ActivitiesVue v-if="activities.length > 0"/>

@@ -10,15 +10,16 @@
         <IconPen @click="edit = !edit" data-cy="todo-title-edit-button" />
       </div>
       <div class="between sort">
-        <IconSort data-cy="todo-sort-button" @click="showFilter = !showFilter"/>
+        <IconSort v-show="todos.length > 0" data-cy="todo-sort-button" @click="showFilter = !showFilter"/>
         <Button data-cy="todo-add-button" type="primary" @click="toggleModal">
           <IconPlus /> <span>Tambah</span>
         </Button>
 
         <div class="sort-items" v-show="showFilter">
-          <div v-for="item in sortItems" :key="item.label" @click="selectFilter(item)"> 
+          <div data-cy="sort-selection" v-for="item in sortItems" :key="item.label" @click="selectFilter(item)"> 
             <div class="between">
-                <IconSort :type="item.icon" /> {{item.label}}
+                <IconSort data-cy="sort-selection-icon" :type="item.icon" /> 
+                <span data-cy="sort-selection-title">{{item.label}}</span>
             </div> 
             <IconCheck v-show="item.label == selectedSort"/> 
           </div>

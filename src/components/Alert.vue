@@ -1,8 +1,9 @@
 <template>
     <div class="modal-overlay" @click.self="toggleAlert">
-        <div class="modal">
+        <div class="modal" data-cy="modal-information">
             <div class="modal-body">
-                <IconInfo /> {{message}}
+                <IconInfo data-cy="modal-information-icon" /> 
+                <span data-cy="modal-information-title">{{message}}</span>
             </div>
         </div>
     </div>

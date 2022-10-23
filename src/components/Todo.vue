@@ -4,7 +4,7 @@
             <input type="checkbox" :checked="!todo.is_active" @click="updateTodoStatus({id:todo.id, is_active:!todo.is_active})" data-cy="todo-item-checkbox">
             <Priority :priority="todo.priority" />
             <h4 data-cy="todo-item-name" :class="todo.is_active ? '' : 'finish'">{{todo.title}}</h4>
-            <IconPen data-cy="todo-title-edit-button" @click="findTodo(todo)"/>
+            <IconPen data-cy="todo-item-edit-button" @click="findTodo(todo)"/>
         </div>
         <div class="between">
             <button data-cy="todo-item-delete-button" @click="deleteTodo"> <IconTrash/> </button>
@@ -38,7 +38,7 @@ export default {
         color:#888;
     }
 
-    [data-cy="todo-title-edit-button"] {
+    [data-cy='todo-item-edit-button'] {
         cursor: pointer;
         width: 20px;
         height:20px;
