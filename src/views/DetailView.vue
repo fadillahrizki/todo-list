@@ -16,10 +16,10 @@
         </Button>
 
         <div class="sort-items" v-show="showFilter">
-          <div data-cy="sort-selection" v-for="item in sortItems" :key="item.label" @click="selectFilter(item)"> 
+          <div v-for="item in sortItems" :key="item.label" @click="selectFilter(item)" :data-cy="item.cy"> 
             <div class="between">
-                <IconSort data-cy="sort-selection-icon" :type="item.icon" /> 
-                <span data-cy="sort-selection-title">{{item.label}}</span>
+                <IconSort :data-cy="item.cy+'-icon'" :type="item.icon" /> 
+                <span :data-cy="item.cy+'-title'">{{item.label}}</span>
             </div> 
             <IconCheck v-show="item.label == selectedSort"/> 
           </div>
@@ -68,23 +68,28 @@ export default {
     sortItems: [
       {
         label:'Terbaru', 
-        icon: 'IconSortNewest'
+        icon: 'IconSortNewest',
+        cy: 'sort-latest'
       },
       {
         label: 'Terlama',
-        icon: 'IconSortOldest'
+        icon: 'IconSortOldest',
+        cy: 'sort-oldest'
       },
       {
         label: 'A-Z',
-        icon: 'IconSortAz'
+        icon: 'IconSortAz',
+        cy: 'sort-az'
       },
       {
         label: 'Z-A',
-        icon: 'IconSortZa'
+        icon: 'IconSortZa',
+        cy: 'sort-za'
       },
       {
         label: 'Belum Selesai',
-        icon: 'IconSortUnfinished'
+        icon: 'IconSortUnfinished',
+        cy: 'sort-unfinished'
       },
     ],
   }), 
