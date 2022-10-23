@@ -6,7 +6,7 @@
       <div class="between">
         <IconBack @click="$router.replace({ name: 'home'})" data-cy="todo-back-button"/>
         <h1 v-if="!edit" @click="editTitle" data-cy="todo-title">{{activity.title}}</h1>
-        <input v-show="edit" type="text" class="" v-model="activity.title" @blur="updateTitle(activity.title);edit = !edit" ref="todoTitleInput" data-cy="todo-title">
+        <input v-show="edit" type="text" class="" v-model="activity.title" @blur="updateTitle(activity.title);edit = !edit" ref="todoTitleInput">
         <IconPen @click="editTitle" data-cy="todo-title-edit-button" />
       </div>
       <div class="between sort">
