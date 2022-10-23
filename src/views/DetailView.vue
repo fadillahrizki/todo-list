@@ -5,7 +5,7 @@
     <div class="between mb">
       <div class="between">
         <IconBack @click="$router.replace({ name: 'home'})" data-cy="todo-back-button"/>
-        <input v-if="edit" type="text" v-model="activity.title" autofocus data-cy="todo-title">
+        <input v-if="edit" type="text" v-model="activity.title" @focusout="updateActivity(activity);edit = !edit" autofocus data-cy="todo-title">
         <h1 v-else @click="edit = !edit" data-cy="todo-title">{{activity.title}}</h1>
         <IconPen @click="edit = !edit" data-cy="todo-title-edit-button" />
       </div>
@@ -99,11 +99,6 @@ export default {
     selectFilter(filter){
       this.sortBy(filter.label)
       this.showFilter = false
-    }
-  },
-  watch:{
-    'activity.title'(){
-      this.updateActivity(this.activity)
     }
   }
 }
