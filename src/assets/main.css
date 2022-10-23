@@ -1,0 +1,78 @@
+@import './base.css';
+
+.between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+}
+
+.mb {
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 2.25rem;
+}
+
+main {
+    padding: 2.5rem 12rem;
+}
+
+img {
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+#priority > div {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 6px;
+    padding-bottom: 10px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 2;
+}
+
+.modal {
+    background-color: var(--white-color);
+    width: 830px;
+    height: fit-content;
+    margin: 20px;
+    margin-top: 10%;
+    border-radius: 12px;
+    z-index: 3;
+}
+
+.modal-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid #dee2e6;
+}
