@@ -10,7 +10,8 @@
         padding:2rem 12rem;
         box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1),
             0 4px 6px -4px rgb(0 0 0 / .1);
-        position: sticky;
+        position: fixed;
+        width:100%;
         top:0;
     }
     .navbar h2 {
