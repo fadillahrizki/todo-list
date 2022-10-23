@@ -5,9 +5,9 @@
     <div class="between mb">
       <div class="between">
         <IconBack @click="$router.replace({ name: 'home'})" data-cy="todo-back-button"/>
-        <input v-if="edit" type="text" v-model="activity.title" @focusout="updateTitle(activity.title);edit = !edit" autofocus data-cy="todo-title">
-        <h1 v-else @click="edit = !edit" data-cy="todo-title">{{activity.title}}</h1>
-        <IconPen @click="edit = !edit" data-cy="todo-title-edit-button" />
+        <h1 v-if="!edit" @click="editTitle" data-cy="todo-title">{{activity.title}}</h1>
+        <input v-show="edit" type="text" class="" v-model="activity.title" @blur="updateTitle(activity.title);edit = !edit" ref="todoTitleInput" data-cy="todo-title">
+        <IconPen @click="editTitle" data-cy="todo-title-edit-button" />
       </div>
       <div class="between sort">
         <IconSort v-show="todos.length > 0" data-cy="todo-sort-button" @click="showFilter = !showFilter"/>
@@ -99,6 +99,12 @@ export default {
     selectFilter(filter){
       this.sortBy(filter.label)
       this.showFilter = false
+    },
+    editTitle(){
+      this.edit = !this.edit
+      this.$nextTick(() => {
+        this.$refs.todoTitleInput.focus();
+      });
     }
   }
 }
@@ -109,8 +115,11 @@ export default {
     cursor: pointer;
   }
 
+  [data-cy="todo-title"] {
+    font-size: 36px;
+  }
+
   [type='text'] {
-    font-size: 1.5rem;
     border:none;
     border-radius: 999px;
     padding: 12px 24px;
