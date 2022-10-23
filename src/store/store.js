@@ -23,8 +23,8 @@ const ACTIVITY = {
         await dispatch('API', {type: 'post', url: 'activity-groups', requestData: newActivity})
         await dispatch('fetchActivities')
     },
-    async updateActivity ({dispatch}, data) {
-        await dispatch('API', {type: 'patch', url: 'activity-groups/'+data.id, requestData: {title:data.title}})
+    async updateTitle ({dispatch}, title) {
+        await dispatch('API', {type: 'patch', url: 'activity-groups/'+router.currentRoute.value.params.id, requestData: {title}})
         await dispatch('fetchActivities')
     },
     async removeActivity ({dispatch, state}, id) {
