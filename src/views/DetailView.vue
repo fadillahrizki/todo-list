@@ -5,7 +5,7 @@
     <div class="between mb">
       <div class="between">
         <IconBack @click="$router.replace({ name: 'home'})" data-cy="todo-back-button"/>
-        <input v-if="edit" type="text" v-model="activity.title">
+        <input v-if="edit" type="text" v-model="activity.title" data-cy="todo-title">
         <h1 v-else @click="edit = !edit" data-cy="todo-title">{{activity.title}}</h1>
         <IconPen @click="edit = !edit" data-cy="todo-title-edit-button" />
       </div>
@@ -17,7 +17,7 @@
 
         <div class="sort-items" v-show="showFilter">
           <div v-for="item in sortItems" :key="item.label" @click="selectFilter(item)" data-cy="sort-selection"> 
-            <div class="between">
+            <div class="between" :data-cy="item.label == selectedSort ? 'sort-selection-selected' : ''">
                 <IconSort :data-cy="'sort-selection-icon'" :type="item.icon" /> 
                 <span :data-cy="'sort-selection-title'">{{item.label}}</span>
             </div> 
